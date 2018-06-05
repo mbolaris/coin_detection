@@ -26,9 +26,24 @@ flags.DEFINE_string('image_dir', '', 'Path to the image directory')
 flags.DEFINE_string('output_path', '', 'Path to output TFRecord')
 FLAGS = flags.FLAGS
 
+class_to_index_map = {'penny-indian' : 1, 
+                      'penny-wheat' : 2,
+                      'penny-shield' : 3,
+                      'penny-lincoln' : 4,
+                      'nickel-liberty' : 5,
+                      'nickel-buffalo' : 6,
+                      'nickel-jefferson' : 7,
+                      'dime-liberty-seated' : 8,
+                      'dime-barber' : 9,
+                      'dime-mercury' : 10,
+                      'dime-roosevelt' : 11,
+                      'quarter-washington' : 12,
+                      }
+
 
 # TO-DO replace this with label map
 def class_text_to_int(row_label):
+    return
     if row_label == 'penny-indian':
         return 1
     elif row_label == 'penny-wheat':
@@ -87,7 +102,7 @@ def create_tf_example(group, path):
         ymaxs.append(row['ymax'] / height)
 #        print (row['class'])
         classes_text.append(row['class'].encode('utf8'))
-        classes.append(class_text_to_int(row['class']))
+        classes.append(class_to_index_map[row['class']])
 
     tf_example = tf.train.Example(features=tf.train.Features(feature={
         'image/height': dataset_util.int64_feature(height),
