@@ -2169,8 +2169,8 @@ def create_tf_example(group, path):
 
           classes_text.append(row['class'].encode('utf8'))
           classes.append(class_to_index_map[row['class']])
-      else:
-        print ('skipping ' + row['class'])
+        else:
+          print ('skipping ' + row['class'])
 
     tf_example = tf.train.Example(features=tf.train.Features(feature={
         'image/height': dataset_util.int64_feature(height),
