@@ -38,6 +38,7 @@ class_to_index_map = {'penny-indian' : 1,
                       'dime-mercury' : 10,
                       'dime-roosevelt' : 11,
                       'quarter-washington' : 12,
+                      'quarter-bicentennial' : 13,
                       }
 
 
