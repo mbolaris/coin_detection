@@ -43,6 +43,8 @@ class_to_index_map = {
   
     'PCGS145456' : 10,
     'PCGS145466' : 10,
+    'PCGS145458' : 10,
+    'PCGS145485' : 8,
     'PCGS2052':1,
     'PCGS2058':1,
     'PCGS2056':1,
