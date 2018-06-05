@@ -40,6 +40,9 @@ class_to_index_map = {
     'dime-roosevelt' : 11,
     'quarter-washington' : 12,
     'quarter-bicentennial' : 13,
+  
+    'PCGS145456' : 10,
+    'PCGS145466' : 10,
     'PCGS2052':1,
     'PCGS2058':1,
     'PCGS2056':1,
