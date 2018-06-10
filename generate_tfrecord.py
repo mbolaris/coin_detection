@@ -104,7 +104,7 @@ def create_tf_example(group, path):
     for index, row in group.object.iterrows():
         if row['class'] is not None:
             tf_index = class_text_to_tf_index(row['class'])
-            print(row['class'] + ' ->tf_index: ' + str(tf_index) )
+#            print(row['class'] + ' ->tf_index: ' + str(tf_index) )
             if tf_index is not None:
                 xmins.append(row['xmin'] / width)
                 xmaxs.append(row['xmax'] / width)
