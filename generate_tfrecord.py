@@ -63,6 +63,8 @@ with open(FLAGS.image_dir + '/pcgs_number_map.json') as f:
     
 print(pcgs_number_map)
 
+class_counts = {}
+
 def class_text_to_tf_index(row_label):    
     if row_label in class_to_index_map:
         return class_to_index_map[row_label]
@@ -110,6 +112,10 @@ def create_tf_example(group, path):
                 ymaxs.append(row['ymax'] / height)
                 classes_text.append(row['class'].encode('utf8'))
                 classes.append(tf_index)
+                if tf_index not in class_counts:
+                    class_counts[tf_index] = 1 
+                else:
+                    class_counts[tf_index] += 1
     if not classes:
         return None
 
@@ -142,6 +148,7 @@ def main(_):
     writer.close()
     output_path = os.path.join(os.getcwd(), FLAGS.output_path)
     print('Successfully created the TFRecords: {}'.format(output_path))
+    print(class_counts)
 
 if __name__ == '__main__':
     tf.app.run()
