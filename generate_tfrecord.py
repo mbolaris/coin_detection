@@ -70,7 +70,6 @@ def class_text_to_tf_index(row_label):
         return class_to_index_map[row_label]
     elif row_label.split('-')[0][4:] in pcgs_number_map:
         pcgs_record = pcgs_number_map[row_label.split('-')[0][4:]]
-        print(pcgs_record)
         if pcgs_record['category'] == 'Lincoln Cent (Modern)' and 'Shield Reverse' in pcgs_record['sub_category']:
             return 4
         elif pcgs_record['category'] == 'Washington Quarter' and 'Bi-Centennial Reverse' in pcgs_record['sub_category']:
