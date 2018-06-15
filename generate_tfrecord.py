@@ -65,19 +65,21 @@ print(pcgs_number_map)
 
 class_counts = {}
 
-def class_text_to_tf_index(row_label):    
-    if row_label in class_to_index_map:
-        return class_to_index_map[row_label]
-    elif row_label.split('-')[0][4:] in pcgs_number_map:
-        pcgs_record = pcgs_number_map[row_label.split('-')[0][4:]]
-        if pcgs_record['category'] == 'Lincoln Cent (Modern)' and 'Shield Reverse' in pcgs_record['sub_category']:
-            return 4
-        elif pcgs_record['category'] == 'Washington Quarter' and 'Bi-Centennial Reverse' in pcgs_record['sub_category']:
-            return 13
-        else:
-            return pcgs_category_map[pcgs_record['category']]
-    return None
-        
+def class_text_to_tf_index(row_label): 
+  return 1
+#    if row_label in class_to_index_map:
+#        return class_to_index_map[row_label]
+#    elif row_label.split('-')[0][4:] in pcgs_number_map:
+#        pcgs_record = pcgs_number_map[row_label.split('-')[0][4:]]
+#        if pcgs_record['category'] == 'Lincoln Cent (Modern)' and 'Shield Reverse' in pcgs_record['sub_category']:
+#            return 4
+#        elif pcgs_record['category'] == 'Washington Quarter' and 'Bi-Centennial Reverse' in pcgs_record['sub_category']:
+#            return 13
+#        else:
+#            return pcgs_category_map[pcgs_record['category']]
+#    return None
+ 
+  
 def split(df, group):
     data = namedtuple('data', ['filename', 'object'])
     gb = df.groupby(group)
