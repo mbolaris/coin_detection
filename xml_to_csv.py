@@ -143,8 +143,8 @@ def main():
 
     assert os.path.isdir(args.inputDir)
     
-    print (path + '/pcgs_number_map.json')  
-    with open(path + '/pcgs_number_map.json') as f:
+    print (args.inputDir + '/pcgs_number_map.json')  
+    with open(args.inputDir + '/pcgs_number_map.json') as f:
         pcgs_number_map = json.load(f)  
     print(pcgs_number_map)
     
