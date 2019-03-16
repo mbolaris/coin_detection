@@ -49,6 +49,7 @@ pcgs_number_map = {}
 
 
 def label_text_to_class(row_label):  
+     print(row_label.split('-')[0][4:])
      if row_label in class_set:
          return row_label
      elif row_label.split('-')[0][4:] in pcgs_number_map:
