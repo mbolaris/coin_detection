@@ -46,7 +46,9 @@ pcgs_category_map = {
 }    
 
 pcgs_number_map = {}
-
+print (args.inputDir + '/pcgs_number_map.json')  
+with open(args.inputDir + '/pcgs_number_map.json') as f:
+    pcgs_number_map = json.load(f)  
 
 def label_text_to_class(row_label):  
      print(row_label.split('-')[0][4:])
@@ -146,10 +148,6 @@ def main():
         args.outputFile = args.inputDir + "/labels.csv"
 
     assert os.path.isdir(args.inputDir)
-    
-    print (args.inputDir + '/pcgs_number_map.json')  
-    with open(args.inputDir + '/pcgs_number_map.json') as f:
-        pcgs_number_map = json.load(f)  
     
     os.makedirs(os.path.dirname(args.outputFile), exist_ok=True)
     xml_df, classes_names = xml_to_csv(args.inputDir)
