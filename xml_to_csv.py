@@ -48,7 +48,6 @@ pcgs_category_map = {
 pcgs_number_map = {}
  
 def label_text_to_class(row_label):  
-     print(row_label.split('-')[0][4:])
      if row_label in class_set:
          return row_label
      elif row_label.split('-')[0][4:] in pcgs_number_map:
@@ -76,16 +75,12 @@ def xml_to_csv(path):
     """
     classes_names = []
     xml_list = []
-    
-    print(pcgs_number_map)
-    
+        
     for xml_file in glob.glob(path + "/*.xml"):
         tree = ET.parse(xml_file)
         root = tree.getroot()
         for member in root.findall("object"):
             label_class = label_text_to_class(member[0].text)
-            print(member[0].text)
-            print(label_class)
             classes_names.append(label_class)
             value = (
                 root.find("filename").text,
