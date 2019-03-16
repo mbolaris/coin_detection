@@ -12,6 +12,7 @@ import glob
 import pandas as pd
 import argparse
 import xml.etree.ElementTree as ET
+import json
 
 
 class_set = set([
