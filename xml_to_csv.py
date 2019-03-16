@@ -78,6 +78,8 @@ def xml_to_csv(path):
     classes_names = []
     xml_list = []
     
+    print(pcgs_number_map)
+    
     for xml_file in glob.glob(path + "/*.xml"):
         tree = ET.parse(xml_file)
         root = tree.getroot()
@@ -148,7 +150,6 @@ def main():
     print (args.inputDir + '/pcgs_number_map.json')  
     with open(args.inputDir + '/pcgs_number_map.json') as f:
         pcgs_number_map = json.load(f)  
-    print(pcgs_number_map)
     
     os.makedirs(os.path.dirname(args.outputFile), exist_ok=True)
     xml_df, classes_names = xml_to_csv(args.inputDir)
