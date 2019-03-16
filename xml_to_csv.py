@@ -45,6 +45,10 @@ pcgs_category_map = {
     'Washington Quarter' : 'quarter-washington',
 }    
 
+args = parser.parse_args()
+if args.inputDir is None:
+    args.inputDir = os.getcwd()
+    
 pcgs_number_map = {}
 print (args.inputDir + '/pcgs_number_map.json')  
 with open(args.inputDir + '/pcgs_number_map.json') as f:
