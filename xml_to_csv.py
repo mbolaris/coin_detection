@@ -60,6 +60,7 @@ def label_text_to_class(row_label):
              return 'quarter-bicentennial'
          else:
              return pcgs_category_map[pcgs_record['category']]
+     print ('No label text for ' + row_label)
      return None
 
 
